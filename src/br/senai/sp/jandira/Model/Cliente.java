@@ -7,14 +7,15 @@ public class Cliente {
     /** Declarar as Variaveis*/
     String name, email, endereco;
     long telefone, cpf, rg;
+    double dinheirodisponivel;
 
     /** Instanciar Scanner */
     Scanner teclado = new Scanner(System.in);
 
-    public void CadastrarCliente(){
+    public void cadastrarCliente(){
 
         System.out.println("--------- ---------- --------- ----------");
-        System.out.println("------------ Cadastro Cliente -----------");
+        System.out.println("------------ Cadastro Cliente -----------\n");
         System.out.print("\nNome do Cliente: ");
         name = teclado.nextLine();
         System.out.print("\nCPF do Cliente: ");
@@ -28,10 +29,14 @@ public class Cliente {
         email = teclado.nextLine();
         System.out.print("\nEndereço do Cliente: ");
         endereco = teclado.nextLine();
-        System.out.println("------------ Cadastro Finalizado -----------");
+        System.out.print("Informe quanto você tem [R$]: ");
+        dinheirodisponivel = teclado.nextDouble();
+
+
+        System.out.println("\n------------ Cadastro Finalizado -----------");
         System.out.println("---------- ----------- ---------- ----------");
 
-        teclado.close();
+
 
 
 
