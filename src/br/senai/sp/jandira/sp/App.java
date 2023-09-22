@@ -1,8 +1,7 @@
-package br.senai.sp.jandira;
+package br.senai.sp.jandira.sp;
 
-import br.senai.sp.jandira.Model.Cliente;
-import br.senai.sp.jandira.Model.Menu;
-import br.senai.sp.jandira.Model.Veiculo;
+
+import br.senai.sp.jandira.sp.Model.Menu;
 
 public class App {
     public static void main(String[] args) {

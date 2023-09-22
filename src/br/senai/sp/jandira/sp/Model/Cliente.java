@@ -1,5 +1,7 @@
-package br.senai.sp.jandira.Model;
+package br.senai.sp.jandira.sp.Model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Cliente {
@@ -11,6 +13,8 @@ public class Cliente {
 
     /** Instanciar Scanner */
     Scanner teclado = new Scanner(System.in);
+
+    List<Cliente> clienteList = new ArrayList<>();
 
     public void cadastrarCliente(){
 
@@ -31,15 +35,37 @@ public class Cliente {
         endereco = teclado.nextLine();
         System.out.print("Informe quanto você tem [R$]: ");
         dinheirodisponivel = teclado.nextDouble();
+        teclado.nextLine();
 
 
         System.out.println("\n------------ Cadastro Finalizado -----------");
         System.out.println("---------- ----------- ---------- ----------");
 
+    }
 
+    public void addCliente(Cliente cliente){
 
+        clienteList.add(cliente);
 
+    }
 
+    public void listarCliente(){
+        for (Cliente cliente : clienteList) {
+
+            System.out.println("Client's Name: " + cliente.name);
+            System.out.println("Client's CPF: " + cliente.cpf);
+
+        }
+
+    }
+
+    public Cliente pesquisarComprador(String name){
+        for (Cliente cliente: clienteList){
+            if (cliente.name.equalsIgnoreCase(name)){
+                return cliente;
+            }
+        }
+        return null;
     }
 
 }

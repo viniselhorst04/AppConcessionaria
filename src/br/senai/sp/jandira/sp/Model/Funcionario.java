@@ -1,18 +1,26 @@
-package br.senai.sp.jandira.Model;
+package br.senai.sp.jandira.sp.Model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Funcionario {
 
-    /** Declarar as Variaveis*/
+    /**
+     * Declarar as Variaveis
+     */
     String name, email, endereco;
     long telefone, cpf, rg;
     double comissao;
 
-    /** Instanciar Scanner */
+    /**
+     * Instanciar Scanner
+     */
     Scanner teclado = new Scanner(System.in);
 
-    public void cadastrarFuncionario(){
+    List<Funcionario> funcionarioList = new ArrayList<>();
+
+    public void cadastrarFuncionario() {
 
         System.out.println("--------- ---------- --------- ----------");
         System.out.println("------------ Cadastro Funcionario -----------\n");
@@ -35,15 +43,39 @@ public class Funcionario {
         System.out.println("---------- ----------- ---------- ----------");
 
 
+    }
+
+    public void comissaoFuncionario(Veiculo objveiculo) {
+
+        comissao += objveiculo.preco * 0.1;
+        System.out.println(" Comissão do Funcionario " + name + " dessa venda é: " + comissao);
+
 
     }
 
-    public void comissaoFuncionario(Veiculo objveiculo){
+    public void addFuncionario(Funcionario funcionario) {
 
-        comissao += objveiculo.preco * 0.1;
-        System.out.println(" Comissão do Funcionario " + name + " dessa venda é: " + comissao );
+        funcionarioList.add(funcionario);
 
+    }
 
+    public void listarFuncionario() {
+        for (Funcionario funcionario : funcionarioList) {
+
+            System.out.println("Employee's Name: " + funcionario.name);
+            System.out.println("Employee's CPF: " + funcionario.cpf);
+
+        }
+
+    }
+
+    public Funcionario pesquisarVendedor(String name){
+        for (Funcionario funcionario: funcionarioList){
+            if (funcionario.name.equalsIgnoreCase(name)){
+                return funcionario;
+            }
+        }
+        return null;
     }
 
 }
